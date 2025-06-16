@@ -13,6 +13,13 @@ while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game = False
+        if mode == "menu":
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                x, y = event.pos
+                if btn_play.rect.collidepoint(x, y):
+                    mode = "game"
+                if btn_exit.rect.collidepoint(x, y):
+                    game = False
     
         
                         
@@ -22,5 +29,11 @@ while game:
 
         btn_play.draw(120, 30)
         btn_exit.draw(120, 30)
+    
+
+    if mode == "game":
+        if not finish:
+            window.blit(bg, (0, 0))
+
     
     pygame.display.update()

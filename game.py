@@ -8,6 +8,9 @@ btn_exit = Button(465, 550, 350, 100, (170, 139, 231), 'EXIT', 60, (255, 255, 25
 mode = "menu"
 game = True
 finish = False
+pygame.mixer.init()
+pygame.mixer.music.load("BLOODBATH.ogg")
+pygame
 while game:
     key_pressed = pygame.key.get_pressed()
     for event in pygame.event.get():
@@ -18,6 +21,7 @@ while game:
                 x, y = event.pos
                 if btn_play.rect.collidepoint(x, y):
                     mode = "game"
+                    pygame.mixer.music.play()
                 if btn_exit.rect.collidepoint(x, y):
                     game = False
     

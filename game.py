@@ -10,7 +10,9 @@ game = True
 finish = False
 pygame.mixer.init()
 pygame.mixer.music.load("BLOODBATH.ogg")
-pygame
+
+player = Player(50, h - 90, 40, 50, 10, player_images)
+
 while game:
     key_pressed = pygame.key.get_pressed()
     for event in pygame.event.get():

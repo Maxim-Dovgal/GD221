@@ -1,5 +1,10 @@
 from pbgetc import *
+from levels import *
 
+level1_objects = draw_level(level1)
+player = Player(50, h - 90, 40, 50, 10, player_images)
+
+level1_objects.add(player)
 
 "КНОПКИ ДЛЯ МЕНЯ"
 btn_play = Button(464, 250, 350, 100, (170, 139, 231), 'PLAY', 60, (255, 255, 255))
@@ -40,6 +45,15 @@ while game:
     if mode == "game":
         if not finish:
             window.blit(bg, (0, 0))
+            for obj in level1_objects:
+                window.blit(obj.image, camera.apply(obj))
+            camera.update(player)
 
+            player.update(platforms)
+
+
+            if player.rect.y > (h - player.rect.height):
+                finish = True
     
     pygame.display.update()
+    clock.tick(FPS)

@@ -37,11 +37,11 @@ class Player(Sprite):
         self.jump_count = 25
 
         self.fall = 0
-        self.gravity = 2,5
+        self.gravity = 2.5
         self.on_ground = False
 
     def update(self, platforms):
-        self.image = pygame.transform.scale(pygame.image.load("куб.png"), (self.width, self.height))
+        self.image = pygame.transform.scale(pygame.image.load("asstess/куб.png"), (self.width, self.height))
 
 
         self.fall += self.gravity

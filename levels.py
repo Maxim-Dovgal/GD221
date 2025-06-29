@@ -59,7 +59,7 @@ level2 = [
     "                                                                       "
     "                                                                       "
     "                               ----------^---^---^^^-----------------^^"
-    "  ---------^^^--------^^^-----^                                        "
+    "------------^^^--------^^^-----^                                       "
 
 ]
 level2_width = len(level2[0]) * 50
@@ -68,8 +68,8 @@ level2_height = len(level2) * 50
 level_objects = pygame.sprite.Group()
 
 class Camera(object):
-    def __init__(self, camera_funs, width, height):
-        self.camera_funs = camera_funs
+    def __init__(self, camera_func, width, height):
+        self.camera_func = camera_func
         self.state = pygame.Rect(0, 0, width, height)
     
     def apply(self, target):
@@ -103,7 +103,7 @@ def draw_level(level: list):
             if symbol == "^":
                 spike = MapObject(x, y, 30, 30, spike_image)
                 level_objects.add(spike)
-                spike.add(spike)
+                spikes.add(spike)
 
             x += 100
         x = 0

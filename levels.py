@@ -2,36 +2,33 @@ from pbgetc import *
 from settings import *
 
 level1 = [
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                                                                       "
-    "                               ----------^---^---^^^-----------------^^"
-    "  ---------^^^--------^^^-----^                                        "
-
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                                                                       ",
+    "                               ----------^---^---^^^-----------------^^",
+    "  ---------^^^--------^^^-----^                                        ",
+    "                                                                       ",
+    "                                                                       ",                              
 ]
-level1_width = len(level1[0]) * 50
-level1_height = len(level1) * 50
+level1_width = len(level1[0]) * 30
+level1_height = len(level1) * 30
 
 level2 = [
     "                                                                       "
@@ -60,7 +57,6 @@ level2 = [
     "                                                                       "
     "                               ----------^---^---^^^-----------------^^"
     "------------^^^--------^^^-----^                                       "
-
 ]
 level2_width = len(level2[0]) * 50
 level2_height = len(level2) * 50
@@ -83,7 +79,7 @@ def camera_config(camera, target_ract):
     _, _, w, h = camera
     l, t = -l + w / 2, -t + h / 2
 
-    l = min(0, 1)
+    l = min(0, l)
     l = max(-(camera.width - w), l)
     t = max(-(camera.height - h), t)
     t = min(0, t)
@@ -97,7 +93,7 @@ def draw_level(level: list):
     for row in level:
         for symbol in row:
             if symbol == "-":
-                platform = MapObject(x, y, 100, 30, platform_image)
+                platform = MapObject(x, y, 30, 30, platform_image)
                 level_objects.add(platform)
                 platforms.add(platform)
             if symbol == "^":
@@ -105,7 +101,7 @@ def draw_level(level: list):
                 level_objects.add(spike)
                 spikes.add(spike)
 
-            x += 100
+            x += 30
         x = 0
         y += 30
 

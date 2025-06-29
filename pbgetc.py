@@ -42,7 +42,7 @@ class Player(Sprite):
 
     def update(self, platforms):
         self.image = pygame.transform.scale(pygame.image.load("asstess/куб.png"), (self.width, self.height))
-
+        self.rect.x += 100
 
         self.fall += self.gravity
         self.rect.y += self.fall

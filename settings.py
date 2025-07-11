@@ -13,6 +13,8 @@ pygame.display.set_icon(pygame.image.load("asstess/куб.png"))
 
 clock = pygame.time.Clock()
 
+
+
 #ГРУПИ СПРАЙТІВ#
 platforms = pygame.sprite.Group()
 spikes = pygame.sprite.Group()
@@ -33,3 +35,4 @@ font3 = pygame.font.SysFont(None, 160, bold=True)
 
 #ТЕКСТИ#
 game_name = font3.render("Geomeytry Dash", True, (116, 89, 170,), (155, 255, 255))
+game_lose = font2.render("lox", True, (100, 100, 100))

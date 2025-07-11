@@ -2,7 +2,7 @@ from pbgetc import *
 from levels import *
 
 level1_objects = draw_level(level1)
-player = Player(50, h - 90, 40, 50, 10, player_images)
+player = Player(50, h - 90, 40, 50, 8, player_images)
 
 level1_objects.add(player)
 
@@ -14,9 +14,9 @@ mode = "menu"
 game = True
 finish = False
 pygame.mixer.init()
+lose_sound = pygame.mixer.Sound("lose.mp3")
 pygame.mixer.music.load("BLOODBATH.ogg")
 
-player = Player(50, h - 90, 40, 50, 10, player_images)
 
 while game:
     key_pressed = pygame.key.get_pressed()
@@ -51,9 +51,17 @@ while game:
 
             player.update(platforms)
 
+            if pygame.sprite.spritecollide(player, spikes, False):
+                finish = True
+                pygame.mixer.music.pause()
+                lose_sound.play()
+                window.blit(game_lose, (600, 300))
+
+            
 
             if player.rect.y > (h - player.rect.height):
                 finish = True
+                pygame.mixer.music.pause()
     
     pygame.display.update()
     clock.tick(FPS)

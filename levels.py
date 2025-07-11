@@ -2,30 +2,30 @@ from pbgetc import *
 from settings import *
 
 level1 = [
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                                                                       ",
-    "                               ----------^---^---^^^-----------------^^",
-    "  ---------^^^--------^^^-----^                                        ",
-    "                                                                       ",
-    "                                                                       ",                              
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                                                                                                                                                                           ",
+    "                                                                                                                                                                                                                             -------                                                                                                                                       ",
+    "                                                                                                                                                                                                                            - -^-^- -                                                                                                                                      ",
+    "                                          ^                                                                                                                                                      ^^                          -------                                                ^^         ^^^                                                                         ",
+    "              ^^^        ^^    ------------------^^^-----------------^^------------------                                                                                               -----------------------                                                   -------     --------------------------                                                                   ",
+    "  ---------------------------^                                                            --           ^^^                    --      ^     ^                ^       ^       ^^       --  ^^^^^^^^^^^^^^^^^^^^                                             -------       ^^^^                           ^^                          ^^       ^^                            ",
+    "                                                                                             -------------------   ----------    --------------------------------------------------------------------------------------------------------------------------                                              ---------------------------------------------      -------------- ",
+    "                                                                                                                                                                                                                                                                                                                                                       ^^^^^^              ",                              
 ]
 level1_width = len(level1[0]) * 30
 level1_height = len(level1) * 30
@@ -76,7 +76,7 @@ class Camera(object):
     
 def camera_config(camera, target_ract):
     l, t, _, _ = target_ract
-    _, _, w, h = camera
+    _, _, w1, h1 = camera
     l, t = -l + w / 2, -t + h / 2
 
     l = min(0, l)
@@ -84,7 +84,7 @@ def camera_config(camera, target_ract):
     t = max(-(camera.height - h), t)
     t = min(0, t)
 
-    return pygame.Rect(l, t, w, h)
+    return pygame.Rect(l, t, w1, h1)
 
 camera = Camera(camera_config, level1_width, level1_height)
 
@@ -97,7 +97,7 @@ def draw_level(level: list):
                 level_objects.add(platform)
                 platforms.add(platform)
             if symbol == "^":
-                spike = MapObject(x, y, 30, 30, spike_image)
+                spike = MapObject(x, y, 30, 25, spike_image)
                 level_objects.add(spike)
                 spikes.add(spike)
 

@@ -34,7 +34,7 @@ class Player(Sprite):
         super().__init__(x, y, width, height, speed, images)
 
         self.is_jump = False
-        self.jump_count = 25
+        self.jump_count = 27
 
         self.fall = 0
         self.gravity = 2.5
@@ -42,7 +42,8 @@ class Player(Sprite):
 
     def update(self, platforms):
         self.image = pygame.transform.scale(pygame.image.load("asstess/куб.png"), (self.width, self.height))
-        self.rect.x += 100
+        self.rect.x += self.speed
+        
 
         self.fall += self.gravity
         self.rect.y += self.fall
